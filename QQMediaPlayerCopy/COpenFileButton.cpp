@@ -13,15 +13,17 @@
 #define RIGHT_BUTTON_WIDTH 60
 #define BUTTON_HEIGHT 40
 
-COpenFileButton::COpenFileButton(QWidget* p) : QWidget(p)
+COpenFileButton::COpenFileButton(QWidget* p) : QWidget(p) //构造函数
 {
 	//设置总宽度
 	m_totalWidth = LEFT_BUTTON_WIDTH + RIGHT_BUTTON_WIDTH;
 
+	// 创建中间打开文件按钮
 	m_pOpenFileButton = new QPushButton(this);
 	m_pOpenFileButton->setText(tr("open file"));
 	m_pOpenFileButton->setFixedSize(LEFT_BUTTON_WIDTH, BUTTON_HEIGHT);
 
+	//中间打开文件按钮样式
 	QString qssLeft = "QPushButton{"
 		"padding-left:30px;"
 		"border-top-left-radius:20px;border-bottom-left-radius:20px;"
@@ -29,11 +31,11 @@ COpenFileButton::COpenFileButton(QWidget* p) : QWidget(p)
 		"color:rgb(255, 255, 255);"
 		"text-align:left;"
 		"}";
-
 	m_pOpenFileButton->setIcon(QIcon(":/videoWidget/resources/videoWidget/openfile.svg"));
 	m_pOpenFileButton->setLayoutDirection(Qt::LeftToRight);
 	m_pOpenFileButton->setStyleSheet(qssLeft);
 
+	//创建下拉菜单箭头按钮
 	m_pArrowButton = new QPushButton(this);
 	m_pArrowButton->setFixedSize(RIGHT_BUTTON_WIDTH, BUTTON_HEIGHT);
 
@@ -46,6 +48,7 @@ COpenFileButton::COpenFileButton(QWidget* p) : QWidget(p)
 		"subcontrol-position:right center;"
 		"subcontrol-origin:padding;border:none;}";*/
 
+	////创建下拉菜单箭头按钮样式
 	QString qssRight = "QPushButton{"
 		"background-image: url(:/videoWidget/resources/videoWidget/vline.svg);"
 		"background-repeat: no-repeat;"
@@ -61,7 +64,6 @@ COpenFileButton::COpenFileButton(QWidget* p) : QWidget(p)
 		"image:url(:/videoWidget/resources/videoWidget/down_arrow_16px.svg);"
 		"subcontrol-position:right center;right:10px;"  
 		"subcontrol-origin:padding;border:none;}";
-
 	m_pArrowButton->setStyleSheet(qssRight);
 
 	//QString menu_qss = "QMenu{background-color:rgb(253,253,253);}"
@@ -74,6 +76,8 @@ COpenFileButton::COpenFileButton(QWidget* p) : QWidget(p)
 	//	/*选择项设置*/
 	//	"QMenu::item:selected{background-color: #FFF8DC;}";
 
+	//创造选择页以及样式
+	QMenu* pMenu = new QMenu(this);
 	std::string menu_qss = R"(
 		QMenu
 		{
@@ -95,9 +99,10 @@ COpenFileButton::COpenFileButton(QWidget* p) : QWidget(p)
 		}
 	)";
 
-	QMenu* pMenu = new QMenu(this);
+	//菜单样式配置
 	pMenu->setStyleSheet(QString::fromStdString(menu_qss));
 	pMenu->setFixedWidth(m_totalWidth);
+	// 添加菜单项
 	QAction* pAc1 = new QAction(tr("open file"), this);
 	QAction* pAc2 = new QAction(tr("open floder"), this);
 	QAction* pAc3 = new QAction(tr("open net stream"), this);
@@ -130,13 +135,13 @@ COpenFileButton::~COpenFileButton()
 {
 }
 
-void COpenFileButton::paintEvent(QPaintEvent* event)
+void COpenFileButton::paintEvent(QPaintEvent* event) //绘制圆角背景
 {
 	QPainter painter(this);
 	painter.setRenderHint(QPainter::Antialiasing);  // 反锯齿
-	painter.setBrush(QBrush(QColor(55, 55, 55)));
-	painter.setPen(Qt::transparent);
-	QRect rect = this->rect();
+	painter.setBrush(QBrush(QColor(55, 55, 55)));   // 设置画刷颜色
+	painter.setPen(Qt::transparent);                // 透明边框
+	QRect rect = this->rect();                      // 绘制圆角矩形，圆角半径为高度的一半
 	painter.drawRoundedRect(rect, BUTTON_HEIGHT / 2, BUTTON_HEIGHT / 2);  //设置窗口圆角 15px
 
 	QWidget::paintEvent(event);

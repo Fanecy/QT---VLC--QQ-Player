@@ -89,43 +89,43 @@
 <context>
     <name>COpenFileButton</name>
     <message>
-        <location filename="COpenFileButton.cpp" line="22"/>
-        <location filename="COpenFileButton.cpp" line="101"/>
+        <location filename="COpenFileButton.cpp" line="23"/>
+        <location filename="COpenFileButton.cpp" line="106"/>
         <source>open file</source>
         <translation>打开文件</translation>
     </message>
     <message>
-        <location filename="COpenFileButton.cpp" line="102"/>
+        <location filename="COpenFileButton.cpp" line="107"/>
         <source>open floder</source>
         <translation>打开文件夹</translation>
     </message>
     <message>
-        <location filename="COpenFileButton.cpp" line="103"/>
+        <location filename="COpenFileButton.cpp" line="108"/>
         <source>open net stream</source>
         <translation>打开网络流</translation>
     </message>
     <message>
-        <location filename="COpenFileButton.cpp" line="178"/>
+        <location filename="COpenFileButton.cpp" line="183"/>
         <source>select video file</source>
         <translation>选择视频文件</translation>
     </message>
     <message>
-        <location filename="COpenFileButton.cpp" line="180"/>
+        <location filename="COpenFileButton.cpp" line="185"/>
         <source>video file (*.flv *.rmvb *.avi *.mp4);; all files(*.*);; </source>
         <translation>视频文件((*.flv *.rmvb *.avi *.mp4);; all files(*.*);;)</translation>
     </message>
     <message>
-        <location filename="COpenFileButton.cpp" line="206"/>
+        <location filename="COpenFileButton.cpp" line="211"/>
         <source>choose video directory</source>
         <translation>选择视频目录</translation>
     </message>
     <message>
-        <location filename="COpenFileButton.cpp" line="224"/>
+        <location filename="COpenFileButton.cpp" line="229"/>
         <source>Warn</source>
         <translation>提示</translation>
     </message>
     <message>
-        <location filename="COpenFileButton.cpp" line="224"/>
+        <location filename="COpenFileButton.cpp" line="229"/>
         <source>this floder no video files</source>
         <translation>该文件夹没有视频文件</translation>
     </message>
