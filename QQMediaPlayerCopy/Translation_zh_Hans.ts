@@ -107,7 +107,8 @@
     <message>
         <location filename="COpenFileButton.cpp" line="183"/>
         <source>select video file</source>
-        <translation>选择视频文件</translation>
+        <oldsource>select video file��</oldsource>
+        <translation type="unfinished">选择视频文件</translation>
     </message>
     <message>
         <location filename="COpenFileButton.cpp" line="185"/>

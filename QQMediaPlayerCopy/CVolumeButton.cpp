@@ -21,7 +21,7 @@ CVolumeButton::~CVolumeButton()
 {
 }
 
-void CVolumeButton::paintEvent(QPaintEvent*)
+void CVolumeButton::paintEvent(QPaintEvent*) //ªÊ÷∆∞¥≈•
 {
 	QStylePainter p(this);
 	QStyleOptionButton option;

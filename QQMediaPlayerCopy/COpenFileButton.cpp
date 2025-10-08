@@ -149,7 +149,7 @@ void COpenFileButton::paintEvent(QPaintEvent* event) //绘制圆角背景
 
 bool COpenFileButton::eventFilter(QObject* watched, QEvent* event)
 {
-	if(m_pArrowButton)
+	if(m_pArrowButton) //将菜单设定在两个组件的最下方
 	{
 		if (event->type() == QEvent::Show && watched == m_pArrowButton->menu())
 		{
@@ -170,7 +170,7 @@ void COpenFileButton::on_openfile()
 {
 	QString cfgPath = "HKEY_CURRENT_USER\\Software\\CMainWindow";
 	QSettings settings(cfgPath, QSettings::NativeFormat);
-	QString lastPath = settings.value("openfile_path").toString();  // 从注册表获取路径
+	QString lastPath = settings.value("openfile_path").toString();  // 从注册表获取上次打开的路径
 	
 	if (lastPath.isEmpty())
 	{
